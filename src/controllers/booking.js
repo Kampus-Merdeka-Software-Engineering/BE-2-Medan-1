@@ -12,7 +12,7 @@ const getBooking = async (req, res) => {
 
 const addBooking = async (req, res) => {
   try {
-    const { bookingId, name, email, telepon, quantity, dateAt, totalPrice } = req.body;
+    const { bookingId, name, email, telepon, quantity, dateAt, totalPrice, productName } = req.body;
     const Booking = new booking({
         bookingId,
         name,
@@ -21,6 +21,7 @@ const addBooking = async (req, res) => {
         quantity,
         dateAt,
         totalPrice,
+        productName,
     });
 
     const addBooking = await Booking.save();

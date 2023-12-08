@@ -34,6 +34,10 @@ const booking = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    productName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   },
   {
     timestamps: false,

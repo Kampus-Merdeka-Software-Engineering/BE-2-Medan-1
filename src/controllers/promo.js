@@ -31,4 +31,18 @@ const addPromo = async (req, res) => {
   }
 };
 
-module.exports = { addPromo, getPromo };
+const deletePromo = async (req, res) => {
+  try {
+    const deletedPromoCount = await promo.destroy({ where: {} });
+
+    if (deletedPromoCount > 0) {
+      res.status(200).json({ message: 'All Promo data deleted successfully' });
+    } else {
+      res.status(404).json({ message: 'No Promo data found to delete' });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Failed to delete Promo data' });
+  }
+};
+module.exports = { addPromo, getPromo, deletePromo };

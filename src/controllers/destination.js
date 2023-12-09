@@ -14,7 +14,7 @@ const addDestination = async (req, res) => {
   try {
     const { destinationId, title, subTitle, bonus, price, image } = req.body;
 
-    const Destination = new destination({
+    const Destination = new Destination({
         destinationId,
         title,
         subTitle,

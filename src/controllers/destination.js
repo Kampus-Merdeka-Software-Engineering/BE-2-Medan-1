@@ -31,4 +31,19 @@ const addDestination = async (req, res) => {
   }
 };
 
-module.exports = { addDestination, getDestination };
+const deleteDestination = async (req, res) => {
+  try {
+    const deletedDestinationCount = await Destination.destroy({ where: {} });
+
+    if (deletedDestinationCount > 0) {
+      res.status(200).json({ message: 'All Destination data deleted successfully' });
+    } else {
+      res.status(404).json({ message: 'No Destination data found to delete' });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Failed to delete Destination data' });
+  }
+};
+
+module.exports = { addDestination, getDestination, deleteDestination };

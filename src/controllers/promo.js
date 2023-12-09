@@ -14,7 +14,7 @@ const addPromo = async (req, res) => {
   try {
     const { promoId, title, subTitle, bonus, price, image } = req.body;
 
-    const Promo = new Promo({
+    const Promo = new promo({
       promoId,
         title,
         subTitle,
@@ -23,7 +23,7 @@ const addPromo = async (req, res) => {
         image
     });
 
-    const addPromo = await promo.save();
+    const addPromo = await Promo.save();
     res.status(201).json({ message: 'Promo created successfully', data: addPromo });
   } catch (error) {
     console.error(error);

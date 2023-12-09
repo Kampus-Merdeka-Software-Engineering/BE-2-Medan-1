@@ -14,7 +14,7 @@ const addDestination = async (req, res) => {
   try {
     const { destinationId, title, subTitle, bonus, price, image } = req.body;
 
-    const Destination = new Destination({
+    const Destination = new destination({
         destinationId,
         title,
         subTitle,
@@ -23,7 +23,7 @@ const addDestination = async (req, res) => {
         image
     });
 
-    const addDestination = await destination.save();
+    const addDestination = await Destination.save();
     res.status(201).json({ message: 'Destination created successfully', data: addDestination });
   } catch (error) {
     console.error(error);

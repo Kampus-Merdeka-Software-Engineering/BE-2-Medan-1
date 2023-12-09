@@ -23,7 +23,7 @@ const addDestination = async (req, res) => {
         image
     });
 
-    const addDestination = await Destination.save();
+    const addDestination = await destination.save();
     res.status(201).json({ message: 'Destination created successfully', data: addDestination });
   } catch (error) {
     console.error(error);
@@ -33,7 +33,7 @@ const addDestination = async (req, res) => {
 
 const deleteDestination = async (req, res) => {
   try {
-    const deletedDestinationCount = await Destination.destroy({ where: {} });
+    const deletedDestinationCount = await destination.destroy({ where: {} });
 
     if (deletedDestinationCount > 0) {
       res.status(200).json({ message: 'All Destination data deleted successfully' });

@@ -45,6 +45,7 @@ const addBooking = async (req, res) => {
     };
     transporter.use('compile', hbs(handlebarOptions));
       // Setup email data
+      const formattedTotalPrice = totalPrice.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' });
       const mailOptions = {
         from: 'sukatripnews00@gmail.com',
         to: email,
@@ -56,8 +57,7 @@ const addBooking = async (req, res) => {
           telepon,
           quantity,
           dateAt,
-          totalPrice,
-          productName,
+          formattedTotalPrice,
         },
       };
       

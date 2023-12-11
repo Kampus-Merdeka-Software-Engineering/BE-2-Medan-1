@@ -32,7 +32,7 @@ const addBooking = async (req, res) => {
       service: 'gmail',
         auth: {
           user: 'sukatripnews00@gmail.com',
-          pass: 'acojackash46',
+          pass: 'psrx pbbl uuzo ffsx',
         },
       });
       

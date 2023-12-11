@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #1E91B0;
+            background-color: #f4f4f4;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #1E91B0;
+        }
+
+        p {
+            margin: 0 0 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #1E91B0;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Booking Confirmation</h1>
+        <p>Dear {{name}},</p>
+        <p>Thank you for your booking! Below are the details of your order:</p>
+        
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Quantity</th>
+                <th>Booking Date</th>
+                <th>Total Price</th>
+                <th>Product Name</th>
+            </tr>
+            <tr>
+                <td>{{name}}</td>
+                <td>{{email}}</td>
+                <td>{{telepon}}</td>
+                <td>{{quantity}}</td>
+                <td>{{dateAt}}</td>
+                <td>{{totalPrice}}</td>
+                <td>{{productName}}</td>
+            </tr>
+            <!-- Repeat the above row for each product in the order -->
+        </table>
+
+        <p>Thank you for choosing our service. We look forward to serving you!</p>
+    </div>
+</body>
+</html>

@@ -54,7 +54,6 @@ const addBooking = async (req, res) => {
         context: {
           name,
           email,
-          telepon,
           quantity,
           dateAt,
           formattedTotalPrice,

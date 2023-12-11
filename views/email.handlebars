@@ -70,7 +70,7 @@
                 <td>{{telepon}}</td>
                 <td>{{quantity}}</td>
                 <td>{{dateAt}}</td>
-                <td>{{totalPrice}}</td>
+                <td>{{totalPrice.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' })}}</td>
                 <td>{{productName}}</td>
             </tr>
             <!-- Repeat the above row for each product in the order -->

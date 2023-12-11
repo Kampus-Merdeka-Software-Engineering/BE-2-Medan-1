@@ -47,7 +47,7 @@ const addBooking = async (req, res) => {
       // Setup email data
       const mailOptions = {
         from: 'sukatripnews00@gmail.com',
-        to: {email},
+        to: email,
         subject: 'Booking Ticket Suka Trip Asia',
         template: 'email',
         context: {

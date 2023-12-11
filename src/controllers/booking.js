@@ -43,7 +43,7 @@ const addBooking = async (req, res) => {
         },
         viewPath: path.resolve('./views/'),
     };
-    transporter.use('compile', hbs(handlebarOptions))
+    transporter.use('compile', hbs(handlebarOptions));
       // Setup email data
       const mailOptions = {
         from: 'sukatripnews00@gmail.com',

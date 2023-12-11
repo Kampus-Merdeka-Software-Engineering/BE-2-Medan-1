@@ -1,3 +1,4 @@
+const formattedTotalPrice = totalPrice.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' });
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,7 +71,7 @@
                 <td>{{telepon}}</td>
                 <td>{{quantity}}</td>
                 <td>{{dateAt}}</td>
-                <td>{{totalPrice.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' })}}</td>
+                <td>{{formattedTotalPrice}}</td>
                 <td>{{productName}}</td>
             </tr>
             <!-- Repeat the above row for each product in the order -->

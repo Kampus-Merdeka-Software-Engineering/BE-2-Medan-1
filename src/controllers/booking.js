@@ -1,3 +1,6 @@
+const nodemailer = require('nodemailer');
+const hbs = require('nodemailer-express-handlebars')
+const path = require('path');
 const booking = require ('../models/booking');
 
 const getBooking = async (req, res) => {
@@ -25,6 +28,47 @@ const addBooking = async (req, res) => {
     });
 
     const addBooking = await Booking.save();
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+        auth: {
+          user: 'sukatripnews00@gmail.com',
+          pass: 'acojackash46',
+        },
+      });
+      
+      const handlebarOptions = {
+        viewEngine: {
+            partialsDir: path.resolve('./views/'),
+            defaultLayout: false,
+        },
+        viewPath: path.resolve('./views/'),
+    };
+    transporter.use('compile', hbs(handlebarOptions))
+      // Setup email data
+      const mailOptions = {
+        from: 'sukatripnews00@gmail.com',
+        to: {email},
+        subject: 'Booking Ticket Suka Trip Asia',
+        template: 'email',
+        context: {
+          name,
+          email,
+          time,
+          telepon,
+          quantity,
+          dateAt,
+          totalPrice,
+          productName,
+        },
+      };
+      
+      // Send the email
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+          return console.error('Error:', error);
+        }
+        console.log('Email sent:', info.response);
+      });
     res.status(201).json({ message: 'Booking created successfully', data: addBooking });
   } catch (error) {
     console.error(error);
